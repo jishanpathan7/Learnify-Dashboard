@@ -2,13 +2,14 @@ import "./globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { ClerkProvider } from "@clerk/nextjs";
-import { ShowToaster } from "./(dashboard)/_components/providers/toaster-provider";
+import { ShowToaster } from "@/components/providers/toaster-provider";
+import { ConfettiProvider } from '@/components/providers/confetti-provider'
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "LMS App",
-  description: "Created by Frontend Developer with ❤️⚡",
+  title: "Learnify - Your Path to Proficiency",
+  description: "Empowering Minds, Unleashing Potential",
 };
 
 export default function RootLayout({
@@ -19,8 +20,11 @@ export default function RootLayout({
   return (
     <ClerkProvider>
       <html lang="en">
-        <ShowToaster/>
-        <body className={inter.className}>{children}</body>
+        <body className={inter.className}>
+          <ConfettiProvider/>
+          <ShowToaster />
+          {children}
+        </body>
       </html>
     </ClerkProvider>
   );
