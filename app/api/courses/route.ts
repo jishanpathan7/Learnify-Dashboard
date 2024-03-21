@@ -15,7 +15,7 @@ export async function POST(req: Request) {
       data: {
         userId,
         title,
-      },
+      }
     });
 
     return NextResponse.json(course);
